@@ -1,0 +1,20 @@
+@mixin outline-button($color) {
+  @include border-radius(0);
+  @include transition(all 0.2s ease-in-out);
+  padding: 0.5rem 1em;
+  vertical-align: middle;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  border: 1px solid transparent;
+  border-color: $color;
+
+  &:hover {
+    background-color: $color;
+
+    text-decoration: none;
+
+    color: #fff;
+  }
+}
