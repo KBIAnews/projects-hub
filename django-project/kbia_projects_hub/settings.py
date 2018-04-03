@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'storages',
     'bakery',
     'markdownify',
+    'projects',
 ]
 
 MIDDLEWARE = [
@@ -81,7 +82,7 @@ WSGI_APPLICATION = 'kbia_projects_hub.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'kbia_projects_hub',
+        'NAME': 'projects',
         'USER': os.getenv('KBIA_BAKERIES_DB_USER'),
         'PASSWORD': os.getenv('KBIA_BAKERIES_DB_PASS'),
         'HOST': os.getenv('KBIA_BAKERIES_DB_URL'),
