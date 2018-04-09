@@ -8,6 +8,19 @@ from django.contrib import admin
 
 class BlockInline(admin.StackedInline):
     model = Block
+    readonly_fields = ["id"]
+    fieldsets = (
+        (None, {
+            'fields': (
+                ('order','id',),
+            )
+        }),
+        ('Text and HTML Options', {
+            'classes': ('collapse',),
+            'fields': (
+                'text',
+            )
+        }),)
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
@@ -21,3 +34,19 @@ class StoryAdmin(admin.ModelAdmin):
     inlines = [
         BlockInline,
     ]
+    fieldsets = (
+        (None, {
+            'fields': (
+                ('name', 'slug'),
+                ('project', 'order'),
+                'teaser',
+                'text',
+            ),
+        }),
+        ('Media', {
+            'fields':  (
+                'teaser_image',
+                'audio',
+            )
+        }),
+    )

@@ -55,7 +55,7 @@ class Story (models.Model):
     order = models.IntegerField(null=False,
                                 blank=False)
     text = models.TextField(help_text="Story text - in Markdown. Appears before block structure.")
-    teaser_image = models.ImageField("Image that appears on project page in designs.",
+    teaser_image = models.ImageField(help_text="Image that appears on project page in designs.",
                                      null=True,
                                      blank=True)
     audio = models.FileField(help_text="Story audio - upload as MP3.",
@@ -73,13 +73,20 @@ class Story (models.Model):
         verbose_name_plural = "stories"
 
 class Block (models.Model):
-    id = models.CharField(max_length=10, primary_key=True, default=pkgen)
+    id = models.CharField(max_length=10,
+                          primary_key=True,
+                          default=pkgen,
+                          verbose_name="Internal CMS ID")
     story = models.ForeignKey(Story,
                               null=False,
                               blank=False)
     text = models.TextField(help_text="Block interpreted text - used only in HTML and Markdown blocks.",
                             null=True,
                             blank=True)
+    order = models.IntegerField(help_text="Priority of display on story page - lowest first.")
+
+    class Meta:
+        ordering = ['story__slug','order']
 
     def __str__(self):
         return "%s in %s" % (self.id, self.story.name)
