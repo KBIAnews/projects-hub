@@ -19,7 +19,6 @@ def pkgen():
 
 # Create your models here
 
-
 class Project (models.Model):
     slug = models.SlugField(max_length=128,
                             unique=True,
