@@ -17,7 +17,6 @@ class ProjectAdmin(admin.ModelAdmin):
 @admin.register(Story)
 class StoryAdmin(admin.ModelAdmin):
     list_display = ["name", "slug"]
-    filter_horizontal = ["story"]
     prepopulated_fields = {"slug": ("name",)}
     inlines = [
         BlockInline,

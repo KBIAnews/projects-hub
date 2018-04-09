@@ -70,6 +70,7 @@ class Story (models.Model):
 
     class Meta:
         ordering = ['order','slug']
+        verbose_name_plural = "stories"
 
 class Block (models.Model):
     id = models.CharField(max_length=10, primary_key=True, default=pkgen)
