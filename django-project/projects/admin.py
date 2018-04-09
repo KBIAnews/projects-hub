@@ -40,8 +40,15 @@ class StoryAdmin(admin.ModelAdmin):
                 ('name', 'slug'),
                 ('project', 'order'),
                 'teaser',
-                'text',
             ),
+        }),
+        ('Traditional Post Entry (No Blocks)', {
+            'classes': (
+                'collapse',
+            ),
+            'fields': (
+                'text',
+            )
         }),
         ('Media', {
             'fields':  (
