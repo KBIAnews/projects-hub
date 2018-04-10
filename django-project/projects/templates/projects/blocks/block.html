@@ -1,0 +1,9 @@
+<div class="block" id="bl-{{block.id}}">
+    {% if block.block_type == "text/md" %}
+        {% include "projects/blocks/text-md.html" with block=block %}
+    {% elif block.block_type == "text/html" %}
+        {% include "projects/blocks/text-html.html" with block=block %}
+    {% elif block.block_type == "image/*|full" %}
+        {% include "projects/blocks/image-full.html" with block=block %}
+    {% endif %}
+</div>

@@ -76,10 +76,12 @@ class Block (models.Model):
     id = models.CharField(max_length=10,
                           primary_key=True,
                           default=pkgen,
-                          verbose_name="Internal CMS ID")
+                          verbose_name="Internal CMS ID",
+                          editable=False)
     story = models.ForeignKey(Story,
                               null=False,
-                              blank=False)
+                              blank=False,
+                              related_name="blocks")
     text = models.TextField(help_text="Block interpreted text - used only in HTML and Markdown blocks.",
                             null=True,
                             blank=True)
@@ -126,6 +128,14 @@ class Block (models.Model):
 
     class Meta:
         ordering = ['story__slug','order']
+
+    def get_alt(self):
+        if self.image_alt:
+            return self.image_alt
+        elif self.image_caption:
+            return self.image_caption
+        else:
+            return None
 
     def __str__(self):
         return "%s in %s" % (self.id, self.story.name)

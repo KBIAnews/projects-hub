@@ -1,0 +1,25 @@
+div.img-full{
+  width: 100%;
+  img {
+    max-width: 100%;
+  }
+}
+
+
+
+
+div.caption{
+  margin-top: 0.3rem;
+  p {
+    font-size: $caption-size;
+    line-height: 1.2em;
+    margin-bottom: 0.25em;
+    color: $caption-color;
+  }
+}
+
+p.caption-credit{
+  font-size: $caption-size !important;
+  line-height: 1.2em !important;
+  color: lighten($caption-color, 20%);
+}

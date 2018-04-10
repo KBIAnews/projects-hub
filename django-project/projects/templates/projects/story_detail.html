@@ -1,3 +1,25 @@
 {% extends 'projects/base.html' %}
 {% load static %}
 {% load markdownify %}
+
+{% block content %}
+<div class="container">
+    <h1>{{object.name}}</h1>
+    {% if object.audio %}
+    <div class="story-audio">
+        {% include 'projects/blocks/components/siri-audio-play.html' with audio_file=object.audio %}
+    {% endif %}
+    </div>
+</div>
+<div class="blocks">
+{% for block in object.blocks.all %}
+    {% include 'projects/blocks/block.html' with block=block %}
+{% endfor %}
+</div>
+{% endblock %}
+
+{% block scriptyblock %}
+{% load static %}
+<script src="{% static 'siriwave.js' %}"></script>
+<script src="{% static 'player.js' %}"></script>
+{% endblock %}

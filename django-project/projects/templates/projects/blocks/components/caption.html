@@ -1,0 +1,5 @@
+{% load markdownify %}
+<div class="container">
+    <div class="caption">{{block.image_caption|markdownify|safe}}</div>
+    <p class="caption-credit">{{block.image_credit}}</p>
+</div>
