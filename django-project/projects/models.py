@@ -109,7 +109,10 @@ class Block (models.Model):
     BLOCK_TYPE_CHOICES = (
         ('text/md', 'Markdown Formatted Text'),
         ('text/html', 'HTML Formatted Text'),
+        ('text/plain|h2', 'Large Heading'),
+        ('text/plain|h3', 'Small Heading'),
         ('image/*|full', 'Full Width Image'),
+        ('image/*|contain', 'Text Width Image'),
         ('audio/mpeg|play', 'MP3 Audio Player'),
     )
     block_type = models.CharField("Block Type",

@@ -13,6 +13,7 @@ class BlockInline(admin.StackedInline):
         (None, {
             'fields': (
                 ('order','id',),
+                'block_type',
             )
         }),
         ('Text and HTML Options', {
@@ -20,7 +21,17 @@ class BlockInline(admin.StackedInline):
             'fields': (
                 'text',
             )
-        }),)
+        }),
+        ('Image Block Options', {
+            'classes': ('collapse',),
+            'fields': (
+                'image_file',
+                'image_caption',
+                'image_alt',
+                'image_credit',
+            )
+        }),
+    )
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
