@@ -84,6 +84,42 @@ class Block (models.Model):
                             null=True,
                             blank=True)
     order = models.IntegerField(help_text="Priority of display on story page - lowest first.")
+    image_caption = models.TextField("Image Caption",
+                                     null=True,
+                                     blank=True)
+    image_alt = models.CharField("Image 'Alt Text'",
+                                 max_length=1024,
+                                 null=True,
+                                 blank=True,
+                                 help_text="Alternate image text for screen readers and SEO. If you do not specify, this falls back to image caption.")
+    image_file = models.ImageField("Image Upload",
+                                   null=True,
+                                   blank=True)
+    image_credit = models.CharField("Image Credit",
+                                    max_length=280,
+                                    null=True,
+                                    blank=True)
+    audio_file = models.FileField("Audio MP3 Upload",
+                                  null=True,
+                                  blank=True)
+
+
+    # Block Typing - This is where the magic happens
+    # Block type choices are based closely on MIME type standard formatting.
+    BLOCK_TYPE_CHOICES = (
+        ('text/md', 'Markdown Formatted Text'),
+        ('text/html', 'HTML Formatted Text'),
+        ('image/*|full', 'Full Width Image'),
+        ('audio/mpeg|play', 'MP3 Audio Player'),
+    )
+    block_type = models.CharField("Block Type",
+                                  null=False,
+                                  blank=False,
+                                  max_length=64,
+                                  default='text/md',
+                                  choices=BLOCK_TYPE_CHOICES,
+                                  help_text="Choose what this block will do, then use those settings in the expanding menus below.")
+
 
     class Meta:
         ordering = ['story__slug','order']
