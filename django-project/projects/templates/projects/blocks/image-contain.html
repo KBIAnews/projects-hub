@@ -1,4 +1,7 @@
 {% load markdownify %}
 <div class="container">
-    {{block.text|markdownify|safe}}
+    <div class="img-full">
+        <img src="{{block.image_file.url}}" alt="{{block.get_alt}}">
+    </div>
 </div>
+{% include "projects/blocks/components/caption.html" with block=block %}
