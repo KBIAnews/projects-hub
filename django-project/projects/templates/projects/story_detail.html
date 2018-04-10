@@ -2,6 +2,8 @@
 {% load static %}
 {% load markdownify %}
 
+{% block title %}{{object.name}}{% endblock %}
+
 {% block content %}
 <div class="container">
     <h1>{{object.name}}</h1>

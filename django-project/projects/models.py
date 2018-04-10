@@ -54,13 +54,16 @@ class Story (models.Model):
                                 blank=False)
     order = models.IntegerField(null=False,
                                 blank=False)
-    text = models.TextField(help_text="Story text - in Markdown. Appears before block structure.")
+    text = models.TextField(help_text="Story text - in Markdown. Appears before block structure.",
+                            blank=True)
     teaser_image = models.ImageField(help_text="Image that appears on project page in designs.",
                                      null=True,
                                      blank=True)
     audio = models.FileField(help_text="Story audio - upload as MP3.",
                              null=True,
                              blank=True)
+    author = models.CharField(max_length=280,
+                              blank=True)
 
     def __str__(self):
         return "%s" % self.name
