@@ -7,6 +7,11 @@
 {% block content %}
 <div class="container">
     <h1>{{object.name}}</h1>
+    {% if object.teaser %}
+    <div class="story-teaser">
+        {{object.teaser|markdownify|safe}}
+    </div>
+    {% endif %}
     {% if object.audio %}
     <div class="story-audio">
         {% include 'projects/blocks/components/siri-audio-play.html' with audio_file=object.audio %}

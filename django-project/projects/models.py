@@ -116,6 +116,7 @@ class Block (models.Model):
         ('text/html', 'HTML Formatted Text'),
         ('text/plain|h2', 'Large Heading'),
         ('text/plain|h3', 'Small Heading'),
+        ('text/plain|blockquote','Pull Quote'),
         ('image/*|full', 'Full Width Image'),
         ('image/*|contain', 'Text Width Image'),
         ('audio/mpeg|play', 'MP3 Audio Player'),
