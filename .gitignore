@@ -169,3 +169,5 @@ django-project/static/css/styles.css
 django-project/static/*.css
 django-project/static/*.png
 django-project/kbia_projects_hub/settings.pyc
+
+package-lock.json
