@@ -14,3 +14,12 @@ class StoryDetailView(BuildableDetailView):
         if self.kwargs['slug']:
             return Story.objects.get(slug=self.kwargs['slug'])
         return super(StoryDetailView, self).get_objects()
+
+class ProjectHTMLView(BuildableDetailView):
+    model = Project
+    template_name = 'projects/project_detail.html'
+
+    def get_object(self):
+        if self.kwargs['slug']:
+            return Project.objects.get(slug=self.kwargs['slug'])
+        return super(StoryDetailView, self).get_objects()

@@ -24,6 +24,8 @@ urlpatterns = [
                   url(r'^admin/', admin.site.urls),
                   url(r'^(?P<proj_slug>[\w-]+)/(?P<slug>[\w-]+)/$', pv.StoryDetailView.as_view(),
                       name='storydetail'),
+                  url(r'^(?P<slug>[\w-]+)/$', pv.ProjectHTMLView.as_view(),
+                      name='projectdetail'),
                   # A Couple of Suggested URL Configs
                   # url(r'^kbia_projects_hub/$', HomePageView.as_view()),
                   # url(r'^kbia_projects_hub/posts/(?P<slug>[\w-]+)/$', PostDetailView.as_view(), name='posts'),
