@@ -5,4 +5,21 @@
 {% block title %}{{object.name}}{% endblock %}
 
 {% block content %}
+<div class="title-card project-title-card fs-card">
+    <h1>{{object.name}}</h1>
+</div>
+{% if object.stories %}
+<div class="past-stories">
+    {% for story in object.stories.all %}
+        <div class="story-preview">
+            <div class="story-order">
+
+            </div>
+            <h3 class="story-name">
+                {{story.name}}
+            </h3>
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
 {% endblock content %}

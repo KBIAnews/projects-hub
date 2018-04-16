@@ -51,7 +51,8 @@ class Story (models.Model):
                               null=False)
     project = models.ForeignKey(Project,
                                 null=False,
-                                blank=False)
+                                blank=False,
+                                related_name="stories")
     order = models.IntegerField(null=False,
                                 blank=False)
     text = models.TextField(help_text="Story text - in Markdown. Appears before block structure.",
